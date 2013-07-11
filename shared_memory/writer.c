@@ -14,14 +14,14 @@ int main(int argc, const char *argv[])
 		exit(-1);
 	}
 
-	printf("%s", message);
+	printf("%s\n", message);
 
 
 	//Allocate shared memory
        	int shm_id = shmget(124, 255, IPC_CREAT | 0600);
 	printf("shm_id: %d", shm_id);
 
-	if(!shm_id) {
+	if(shm_id == -1) {
 		perror("shmget:");
 		exit(-1);
 	}
